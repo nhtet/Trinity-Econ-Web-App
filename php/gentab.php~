@@ -1,0 +1,130 @@
+<?php
+
+session_start();
+if(!isset($_SESSION['username'])){
+header("loation:login.php");
+}else{
+$sid=$_SESSION['sid'];
+$game=$_GET['game']; echo $game;
+try{
+
+$str='<div class="result"><table border="2" bgcolor="#ececec"><caption><h4> Round '. $game .' Result </h4></caption>
+		<tr><th>Name</th><th>Price</th><th>Advertising</th><th>New Demand</th><th>Adv Demand</th><th>15% of R'
+		.($game-1).'</th><th>Tot Demand</th><th>Revenue</th><th>Cost</th><th>Profit'.$game.'</th><th>Previous 
+		Profit</th><th>Total Profit</th><th>15% of R'.$game.'</th><th>Adv Profit</th></tr>';
+		
+$dbh = new PDO("sqlite:test3.db");
+$stmt_lop = $dbh->prepare("SELECT sid FROM Student");
+$row = $stmt_lop->fetchAll();
+$c = count($row);
+print_r($row);
+for ($i=1; $i<=$c; $i++) {
+$stmt_Cost = $dbh->prepare("SELECT cost FROM Cost where gid=:game and sid=:sid");
+$stmt_Cost->bindParam(':game',$game,PDO::PARAM_INT);
+if (!($stmt_Cost->execute()))
+  {
+  throw new Exception('SQL for Cost query failed');
+  }
+
+  
+$stmt_Demand = $dbh->prepare("SELECT ndemand FROM Demand where gid=:game and sid=:sid");
+$stmt_Demand->bindParam(':game',$game,PDO::PARAM_INT);
+if (!($stmt_Demand->execute()))
+  {
+  throw new Exception('SQL for Demand query failed');
+  }
+$stmt_tDemand = $dbh->prepare("SELECT tdemand FROM Demand where gid=:game and sid=:sid");
+$stmt_tDemand->bindParam(':game',$game,PDO::PARAM_INT);
+if (!($stmt_tDemand->execute()))
+  {
+  throw new Exception('SQL for Demand query failed');
+  }
+$stmt_adDemand = $dbh->prepare("SELECT ademand FROM Demand where gid=:game");
+$stmt_adDemand->bindParam(':game',$game,PDO::PARAM_INT);
+if (!($stmt_adDemand->execute()))
+  {
+  throw new Exception('SQL for Demand query failed');
+  }
+
+
+$stmt_Price = $dbh->prepare("SELECT price FROM Price where gid=:game");
+$stmt_Price->bindParam(':game',$game,PDO::PARAM_INT);
+if (!($stmt_Price->execute()))
+  {
+  throw new Exception('SQL for Price query failed');
+
+  }
+
+$stmt_adPrice = $dbh->prepare("SELECT adprice FROM Price where gid=:game");
+$stmt_adPrice->bindParam(':game',$game,PDO::PARAM_INT);
+if (!($stmt_adPrice->execute()))
+  {
+  throw new Exception('SQL for Price query failed');
+  }
+    
+$stmt_Profit = $dbh->prepare("SELECT tprofit FROM Profit where gid=:game");
+$stmt_Profit->bindParam(':game',$game,PDO::PARAM_INT);
+if (!($stmt_Profit->execute()))
+  {
+  throw new Exception('SQL for Profit query failed');
+  }
+
+$stmt_Revenue = $dbh->prepare("SELECT trevenue FROM Revenue where gid=:game");
+$stmt_Revenue->bindParam(':game',$game,PDO::PARAM_INT);
+ 
+if (!($stmt_Revenue->execute()))
+  {
+  throw new Exception('SQL for Revenue query failed');
+  }
+
+$stmt_Name = $dbh->prepare("SELECT fullname FROM Students");
+if (!($stmt_Name->execute()))
+  {
+  throw new Exception('SQL for Name query failed');
+  }
+
+}
+
+$row_Cost = $stmt_Cost->fetchAll();
+#print_r($row_Cost);
+$row_Demand = $stmt_Demand->fetchAll();
+$row_adDemand = $stmt_adDemand->fetchAll();
+$row_tDemand = $stmt_tDemand->fetchAll();
+#print_r($row_Demand);
+$row_Price = $stmt_Price->fetchAll();
+$row_adPrice = $stmt_adPrice->fetchAll();
+#print_r($row_adPrice);
+$row_Profit = $stmt_Profit->fetchAll();
+#print_r($row_Profit);
+$row_Revenue = $stmt_Revenue->fetchAll();
+#print_r($row_Revenue);
+$row_Name = $stmt_Name->fetchAll();
+#print_r($row_Name);
+/*
+echo $row_Cost[0][0]; echo'  ';
+echo $row_Demand[0][0];echo'  ';
+echo $row_Price[0][0];echo'  ';
+echo $row_Profit[0][0];echo'  ';
+echo $row_Revenue[0][0];echo'  ';
+echo $row_Name[3][0];echo'  ';
+*/
+echo $row_tDemand[0][0];
+}
+catch(Exception $e){
+	echo $e->getMessage();
+}
+}
+
+
+
+
+for ($i=0; $i<$c; $i++)
+{
+        $str .= '<tr><td></td><td>'.$row_Price[$i][0].'</td><td>'.$row_adPrice[$i][0].'</td><td>'.$row_Demand[$i][0].
+        '</td><td>'.$row_adDemand[$i][0].'</td><td></td><td>'.$row_tDemand[$i][0].'</td><td>'.$row_Revenue[$i][0].
+        '</td><td>'.$row_Cost[$i][0].'</td><td>'.$row_Profit[$i][0];
+
+}
+echo $str;
+
+?>

@@ -1,0 +1,290 @@
+body {
+	margin:0;
+	padding:0;
+	width:100%;
+	color:#929292;
+	font:normal 12px/1.5em "Liberation sans", Arial, Helvetica, sans-serif;
+	background:#ececec url(../images/main_bg.gif) repeat-x left top;
+}
+html, .main {
+	padding:0;
+	margin:0;
+}
+.main {
+	background:no-repeat center top;
+}
+
+
+a {
+	color:#0a83c0;
+	text-decoration:underline;
+}
+
+.header, .content, .menu_nav, .fbg, .footer, form, ol, ol li, ul, .content .mainbar, .content .sidebar {
+	margin:0;
+	padding:0;
+}
+
+.header_resize {
+	margin:0 auto;
+	padding:0;
+	width:960px;
+}
+.logo {
+	margin:0;
+	padding:0;
+	height:116px;
+}
+h1 {
+	margin:0;
+	padding:24px 0;
+	font-size:55px;
+	font-weight:normal;
+	line-height:1.2em;
+	text-transform:none;
+	text-align:center;
+}
+h1 a, h1 a:hover {
+	color:#363636;
+	text-decoration:none;
+}
+h1 span {
+	color:#fff;
+}
+h1 small {
+	display:block;
+	margin:0;
+	font-size:14px;
+	line-height:1.2em;
+	letter-spacing:normal;
+	text-transform:uppercase;
+	color:#363636;
+}
+.menu_nav{
+	margin:0 auto;
+	padding:0 0 24px 130px;
+	height:51px;
+	float:left;
+}
+.menu_nav ul{
+	list-style:none;
+	padding:0;
+	height:51px;
+	float:left;
+}
+.menu_nav ul li {
+	margin:0;
+	padding:0 2px 0 0;
+	float:left;
+}
+.menu_nav ul li a {
+	display:block;
+	margin:0;
+	padding:18px 0 0;
+	width:138px;
+	height:33px;
+	font-size:15px;
+	line-height:20px;
+	font-weight:normal;
+	color:#363636;
+	text-decoration:none;
+	text-transform:uppercase;
+	text-align:center;
+	background:url(../images/menu_p.jpg) no-repeat center top;
+}
+.menu_nav ul li.active a, .menu_nav ul li a:hover {
+	text-decoration:none;
+	color:#fff;
+	background:url(../images/menu_a.jpg) no-repeat center top;
+}
+
+.content{
+	
+	padding-bottom: 20px;
+	background: #fff;
+	width: 960px;
+	margin: 80px auto 20px auto;
+	font-family: arial, verdana, sans-serif;
+	
+}
+
+.table{
+	color: black;
+	font-size: 200%;
+	line-height: 300%;
+	text-align: left;
+	margin-top:		60px;
+	margin-left:	180px;
+	
+}
+
+.login{
+	color: black;
+	font-size: 200%;
+	line-height: 300%;
+	text-align: left;
+	margin-top:		80px;
+	margin-left:	300px;
+}
+
+.tabs, .newuser{
+	color: 	#747170;
+	font-size: 80%;
+}
+
+.tt{
+	margin-left: 25px;
+}
+
+.result{
+	margin-left: 180px;
+	margin-right: auto;
+	margin-top: 100px;
+	text-align: center;
+	color: black;
+	font-size: 150%;
+	line-height: 100%;
+	
+}
+
+h3{
+	color: black;
+	text-align: center;
+}
+
+.game-submit{
+	margin-top: 90px;
+	border: solid black 1px;
+	width: 430px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	margin-left: 50px;
+	color: black;
+	font-size: 150%;
+	line-height: 200%;
+}
+
+.history{
+	padding: 10px 10px 10px 10px;
+	float: right;
+	margin-right: 50px;
+	margin-top: 	80px;
+	width: auto
+	height: auto;
+	background-color: #ececec;
+	color: black;
+	font-size: 100%;
+	line-height: 150%;
+	border: solid black 1px;
+}
+
+.bhead{
+	padding-top: 20px;
+	margin-top: 0px;
+	font-size: 200%;
+	color: black;
+
+}
+
+.rules{
+	padding: 20px 50px 20px 50px;
+	font-size: 150%;
+	line-height: 150%;
+	color: black;
+}
+
+
+.adminbutt ul li a{
+	display:block;
+	margin-top : 0px;
+	margin-left: 0px;
+	margin-bottom: 50px;
+	padding:0px 15px 0px 15px;
+	width:auto;
+	height:auto;
+	font-size:15px;
+	line-height:20px;
+	font-weight:normal;
+	color:#363636;
+	text-decoration:none;
+	text-transform:uppercase;
+	text-align:center;
+	float:left;
+	background:url(../images/main_bg.gif) repeat-x left top;
+	
+}
+.adminbutt ul li a:hover {
+	text-decoration:none;
+	color:#fff;
+	
+}
+
+.adminbutt{
+	margin:50px auto 30px auto;
+	padding:0 0 24px 130px;
+	height:51px;
+	float:left;
+}
+.adminbutt ul{
+	list-style:none;
+	padding:0;
+	height:51px;
+	float:left;
+}
+.adminbutt ul li {
+	margin:0;
+	padding:0 15px 0 0;
+	float:left;
+}
+
+.logout{
+        position: absolute;
+        color : blue;
+        font-size: 120%;
+        float: right;
+        right: 40px;
+        top: 0px;
+        
+}
+
+.tablink{
+        margin-left: 20px;
+}
+
+.login_error{
+        color: red;
+        font-size: 95%;
+}
+
+#eliminated{
+        width: 450px;
+        margin-left: 20px;
+         
+        
+       
+}
+#face{
+        margin-left: 120px;
+        
+}
+.el{
+        color: red;
+        margin-left: 120px;
+        font-size: 150%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

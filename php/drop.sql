@@ -1,0 +1,10 @@
+DROP TABLE Avtotal;
+DROP TABLE Demand;
+DROP TABLE Gameround;
+DROP TABLE Profit;
+DROP TABLE Revenue;
+DROP TABLE Cost;
+DROP TABLE Elimination;
+DROP TABLE Price;
+DROP TABLE Reserved;
+DROP TABLE Students;

@@ -1,0 +1,51 @@
+CREATE TABLE Students(
+sid INTEGER PRIMARY KEY AUTOINCREMENT,
+fullname varchar(255),
+username varchar(255),
+password varchar(255),
+email varchar(255),
+dob varchar(255),
+sex varchar(10));
+
+CREATE TABLE Demand(
+sid INTEGER NOT NULL,
+gid INTEGER NOT NULL,
+ndemand VARCHAR(255),
+tdemand VARCHAR(255),
+ademand VARCHAR(255),
+PRIMARY KEY (sid,gid)
+);
+
+CREATE TABLE Price(
+sid INTEGER NOT NULL,
+gid INTEGER NOT NULL,
+price VARCHAR(255),
+adprice VARCHAR(255),
+PRIMARY KEY (sid,gid)
+);
+
+CREATE TABLE Cost(
+sid INTEGER NOT NULL,
+gid INTEGER NOT NULL,
+cost VARCHAR(255),
+PRIMARY KEY (sid,gid)
+);
+
+CREATE TABLE Profit(
+sid INTEGER NOT NULL,
+gid INTEGER NOT NULL,
+tprofit VARCHAR(255),
+adprofit VARCHAR(255),
+PRIMARY KEY (sid,gid)
+);
+
+CREATE TABLE Revenue(
+sid INTEGER NOT NULL,
+gid INTEGER NOT NULL,
+trevenue VARCHAR(255),
+PRIMARY KEY (sid,gid)
+);
+
+CREATE TABLE Gameround(
+gid INTEGER PRIMARY KEY AUTOINCREMENT
+);
